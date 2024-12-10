@@ -11,6 +11,7 @@ TEST_CASE("Verify roll returns value between 1-6"){
 	int result;
 	for (int i = 0; i < 10; i++){
 		result = die1.roll();
-		REQUIRE(result<=6&&result>=1);
+		REQUIRE(result<=6);
+		REQUIRE(result>=1);
 	}
 }
