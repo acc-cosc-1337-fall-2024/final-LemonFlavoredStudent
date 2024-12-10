@@ -1,5 +1,8 @@
 #include <cstdlib>
 #include <iostream>
+#ifndef DIE_H
+#define DIE_H
+
 class Die
 {
     public:
@@ -8,3 +11,5 @@ class Die
     private:
     int sides{6};
 };
+
+#endif
