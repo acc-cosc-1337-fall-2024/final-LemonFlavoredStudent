@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "die.h"
 #include "roll.h"
+#include "shooter.h"
 #include <iostream>
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -28,6 +29,22 @@ TEST_CASE("Verify roll_value returns value between 2-12"){
 		result = dice.roll_value();
 		REQUIRE(result<=12);
 		REQUIRE(result>=2);
-		std::cout<<result<<"\n";
+		//std::cout<<result<<"\n";
 	}
 }
+
+TEST_CASE("Verify shooter returns a Roll and verify that the roll result has one of the following values: 2-12"){
+    Die die1;
+    Die die2;
+	Shooter shooter;
+	int result;
+	srand(time(0));
+    for (int i = 0; i < 10; ++i){
+        Roll* roll=shooter.throw_dice(die1, die2);
+        result = roll->roll_value();
+        REQUIRE(result>=2);
+        REQUIRE(result<=12);
+		//std::cout<<result<<"\n";
+    }
+}
+
